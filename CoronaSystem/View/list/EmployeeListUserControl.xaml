@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="CoronaSystem.View.EmployeeListUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoronaSystem.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
+             d:DesignHeight="450" d:DesignWidth="800" Background="#FF97EBD1">
+    <Grid x:Name="print" Background="White" Margin="10,10,10,10">
+        <Image x:Name="image" Source="/images/11.jpg" HorizontalAlignment="Left" Height="100" Margin="480,12,0,0" VerticalAlignment="Top" Width="227"/>
+
+        <Label x:Name="label" Content="choose employee to print him a list:" HorizontalAlignment="Left" Margin="93,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <ComboBox x:Name="comboBox"  ItemsSource="{Binding AllEmployee}" SelectedValue="{Binding SelectEmployee}" HorizontalAlignment="Left" Margin="93,67,0,0" VerticalAlignment="Top" Width="202"/>
+        <ListBox x:Name="listBoxDem" ItemsSource="{Binding Path=ListOfDem, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=true, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Height="258" Margin="93,126,0,0" VerticalAlignment="Top" Width="621"/>
+
+        <Border Style="{StaticResource borderStyle}" Margin="594,358,66,21.6" HorizontalAlignment="Center">
+            <Button x:Name="button" Content="printList" Style="{StaticResource buttonStyle}" Command="{Binding toPdf}" CommandParameter="{Binding}" />
+        </Border>
+    </Grid>
+
+</UserControl>

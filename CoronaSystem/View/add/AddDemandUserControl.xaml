@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="CoronaSystem.View.AddDemandUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoronaSystem.View"
+            mc:Ignorable="d" Height="494.393" Background="Pink" Width="716.044">
+    <Grid x:Name="print" Background="White" Margin="10,10,10,10">
+        <Image x:Name="image" Source="/images/package.jpg" HorizontalAlignment="Left" Height="262" Margin="363,197,0,0" VerticalAlignment="Top" Width="315" RenderTransformOrigin="-0.235,0.704"/>
+
+
+        <StackPanel Margin="84,58,481,278.4">
+            <Label Content="city:" Margin="0,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Center" Height="31" Width="120" Foreground="Black" FontSize="14" FontWeight="Bold"/>
+            <Label Content="street:" Margin="0,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Center" Height="32" Width="120" Foreground="Black" FontSize="14" FontWeight="Bold"/>
+            <Label Content="building:" Margin="0,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Center" Height="32" Width="120" Foreground="Black" FontSize="14" FontWeight="Bold"/>
+            <Label Content="const divide:" Margin="0,0,0,4" HorizontalAlignment="left" VerticalAlignment="Center" Height="31" Width="120" Foreground="Black" FontSize="14" FontWeight="Bold"/>
+        </StackPanel>
+
+        <WrapPanel Margin="82,206,391,206.4">
+            <RadioButton x:Name="mediButt" IsChecked= "{Binding Medicine, Mode=TwoWay, NotifyOnValidationError=true,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" Content="medicines" Margin="0,0,60,0" FontSize="14"/>
+            <RadioButton x:Name="foodButt" IsChecked= "{Binding Food, Mode=TwoWay, NotifyOnValidationError=true,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" Content="food" Margin="0,0,0,0" FontSize="14"/>
+
+        </WrapPanel>
+
+        <StackPanel Margin="193,58,351,274.4" >
+            <TextBox x:Name="cityText" HorizontalAlignment="Right" Height="24" Margin="0,10,0,0" BorderThickness="2"
+                Text="{Binding CityAddress, Mode=TwoWay, NotifyOnValidationError=true,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" 
+                VerticalAlignment="Center" Width="120" BorderBrush="Black"/>
+            <TextBox x:Name="streetText" HorizontalAlignment="Right" Height="24" Margin="0,10,0,0" BorderThickness="2"
+               Text="{Binding StreetAddress, Mode=TwoWay, NotifyOnValidationError=true,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" 
+                VerticalAlignment="Center" Width="120" BorderBrush="Black"/>
+            <TextBox x:Name="BuildingText" HorizontalAlignment="Right" Height="24" Margin="0,10,0,0" BorderThickness="2"
+                Text="{Binding BuildingAddress, Mode=TwoWay, NotifyOnValidationError=true,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" 
+                VerticalAlignment="Center" Width="120" BorderBrush="Black"/>
+            <CheckBox IsChecked="{Binding Path=constDivide, Mode=TwoWay}" Height="23" Margin="40,10,0,10" HorizontalAlignment="Left" Width="25"/>
+        </StackPanel>
+        <TextBox x:Name="errorBox" 
+                Text="{Binding ErrorBox, Mode=TwoWay, NotifyOnValidationError=true, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" 
+                VerticalAlignment="Center" Foreground="Red" BorderBrush="White" Width="120" Margin="75,364,501,92.4"/>
+
+        <Border Style="{StaticResource borderStyle}" Margin="75,286,501,138.4" >
+            <Button x:Name="addButton" Margin="2,-2,2,1.6" Content="Add demand" Style="{StaticResource buttonStyle}" BorderBrush="{x:Null}" Command="{Binding addDemandCommand}" CommandParameter="{Binding}"/>
+
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="CoronaSystem.View.addDemand"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoronaSystem.View"
+             mc:Ignorable="d" Height="494.393" Background="Pink" Width="716.044">
+    <Grid Background="White" Margin="10,10,10,10">
+        <Image x:Name="image" Source="/images/package.jpg" HorizontalAlignment="Left" Height="262" Margin="363,197,0,0" VerticalAlignment="Top" Width="315" RenderTransformOrigin="-0.235,0.704"/>
+
+
+        <StackPanel Margin="84,58,481,278.4">
+            <Label Content="Last name:" Margin="0,0,0,4" HorizontalAlignment="left" VerticalAlignment="Center" Height="31" Width="120" Foreground="Black" FontSize="14" FontWeight="Bold"/>
+            <Label Content="city:" Margin="0,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Center" Height="31" Width="120" Foreground="Black" FontSize="14" FontWeight="Bold"/>
+            <Label Content="street:" Margin="0,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Center" Height="32" Width="120" Foreground="Black" FontSize="14" FontWeight="Bold"/>
+            <Label Content="building:" Margin="0,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Center" Height="32" Width="120" Foreground="Black" FontSize="14" FontWeight="Bold"/>
+        </StackPanel>
+
+        <WrapPanel Margin="82,206,391,227.4">
+            <RadioButton x:Name="radioButton1" Content="medicines" Margin="0,0,60,0" FontSize="14"/>
+            <RadioButton x:Name="radioButton2" Content="food" Margin="0,0,0,0" FontSize="14"/>
+        </WrapPanel>
+
+        <StackPanel Margin="193,66,351,274.4" >
+            <TextBox x:Name="firstNameTextBox" HorizontalAlignment="Right" Height="24" Margin="0,0,0,0" BorderThickness="2"
+                Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" 
+                VerticalAlignment="Center" Width="120" TextChanged="FirstNameTextBox_TextChanged" BorderBrush="Black"/>
+            <TextBox x:Name="firstNameTextBox_Copy" HorizontalAlignment="Right" Height="24" Margin="0,10,0,0" BorderThickness="2"
+                Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" 
+                VerticalAlignment="Center" Width="120" TextChanged="FirstNameTextBox_TextChanged" BorderBrush="Black"/>
+            <TextBox x:Name="firstNameTextBox_Copy1" HorizontalAlignment="Right" Height="24" Margin="0,10,0,0" BorderThickness="2"
+                Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" 
+                VerticalAlignment="Center" Width="120" TextChanged="FirstNameTextBox_TextChanged" BorderBrush="Black"/>
+            <TextBox x:Name="firstNameTextBox_Copy2" HorizontalAlignment="Right" Height="24" Margin="0,10,0,0" BorderThickness="2"
+                Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnDataErrors=True, ValidatesOnExceptions=true}" 
+                VerticalAlignment="Center" Width="120" TextChanged="FirstNameTextBox_TextChanged" BorderBrush="Black"/>
+        </StackPanel>
+
+        <Border Style="{StaticResource borderStyle}" Margin="75,286,501,138.4" >
+            <Button x:Name="addButton" Margin="2,-2,2,1.6" Content="Add demand" Style="{StaticResource buttonStyle}" BorderBrush="{x:Null}" Click="AddButton_Click" />
+        </Border>
+    </Grid>
+</UserControl>

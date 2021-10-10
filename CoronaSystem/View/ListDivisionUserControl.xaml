@@ -1,0 +1,42 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoronaSystem.View"
+             xmlns:BE="clr-namespace:Corona.BE;assembly=Corona.BE" 
+             x:Class="CoronaSystem.View.ListDivisionUserControl"
+             mc:Ignorable="d" 
+           d:DesignHeight="450" d:DesignWidth="800" Background="#FFC0FA7E">
+    <Grid Background="White" Margin="10,10,10,10">
+        <Image x:Name="image" Source="C:\Users\user\Desktop\CoronaProject\CoronaSystem\images\food.jpg" Margin="448,196,-2,-2.4"/>
+
+        <ListView x:Name="listOfDivision" ItemsSource="{Binding Path=ListOfDivision, Mode=TwoWay}" 
+            HorizontalAlignment="Center" Height="322" Margin="52,62,334,45.6" Width="394" VerticalAlignment="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0" IsChecked="{Binding isChecked, Mode=TwoWay}" 
+                                  Command="{ Binding DataContext.checkDivision, RelativeSource={RelativeSource AncestorType=ListView}}" 
+                                  CommandParameter="{Binding codeDiv}" />
+                        <TextBlock Grid.Column="1" Text="{Binding Path=codeDiv}" />
+                        <TextBlock Grid.Column="2" Text="{Binding Path=empId}"/>
+                        <TextBlock Grid.Column="3" Text="{Binding Path=dateDiv}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label x:Name="label" Content="Division:" FontWeight="Bold" FontSize="16" Margin="54,21,641,375.6"/>
+
+        <Label x:Name="label2" Content="select which Division made to needed people:" FontWeight="Bold" FontSize="10" Margin="520,67,34,329.6"/>
+        <Border Style="{StaticResource borderStyle}" Margin="572,106,88,273.6" HorizontalAlignment="Center">
+            <Button x:Name="button" Content="update divisions" Style="{StaticResource buttonStyle}" Command="{Binding ClickDemand}" CommandParameter="{Binding}"/>
+        </Border>
+
+    </Grid>
+</UserControl>
